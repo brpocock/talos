@@ -1,0 +1,21 @@
+# Backup, temp files
+tmp.*
+*.tmp
+*~
+\#*\#
+.\#*
+temp-*
+
+# Output class files
+*.class
+
+# Android dex
+*.dex
+
+# NDK output archives
+*.o
+*.a
+
+# Android deployment packages
+*.apk
+
