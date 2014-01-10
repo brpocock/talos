@@ -1,0 +1,3 @@
+[submodule "ouya-docs"]
+	path = doc/ouya-docs
+	url = git@github.com:ouya/docs
