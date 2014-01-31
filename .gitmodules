@@ -4,3 +4,6 @@
 [submodule "ecl-android"]
 	path = lib/ecl-android
 	url = git@github.com:romance-ii/ecl-android
+[submodule "ouya-odk"]
+	path = lib/Ouya-SDK
+	url = git@github.com:romance-ii/ouya-odk
