@@ -1,0 +1,232 @@
+\input texinfo  @c -*- texinfo -*-
+@setfilename Talos
+@settitle Talos Programmers' Reference Guide
+@documentlanguage en
+@documentencoding UTF-8
+@smallbook
+@syncodeindex cp
+
+@setchapternewpage odd
+
+@copying
+This manual is for Talos, an Android client for the Romance game system.
+
+Copyright @copyright{} 2014, Bruce-Robert Fenn Pocock.
+
+@quotation
+Permission is granted to duplicate this manual under the same terms as
+Talos itself.
+@end quotation
+
+@end copying
+
+@titlepage
+@title Talos Programmers' Reference Guide
+@subtitle Programming your own Android game client
+@subtitle for the Romance game system
+@author Bruce-Robert Fenn Pocock
+
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+
+This manual was published by … nobody. Wait … This document has not yet
+been published. How are you reading this?
+@end titlepage
+
+@headings double
+
+@c  Use the section at the bottom of the page for footing text
+@everyfootingmarks bottom
+
+@c  Page numbers on the outside, alternate between the title of the book
+@c  and the title of the chapter on even/odd pages
+@evenheading @| @thistitle @|
+@evenfooting @thispage @| @| @thissection
+
+@oddheading @| @thischapter @|
+@oddfooting @thissection @| @| @thispage
+
+@shortcontents
+1
+@contents
+
+@itnottex
+@node Top, Introduction, (dir), (dir)
+@top Talos
+
+This is a Programmers' Reference Guide for Talos, the ``official'' base
+for creating Android game clients for the Romance game system.
+@end ifnottex
+
+@menu
+* Introduction:: Introduction.  Introduction.  Introduction
+
+--- Detailed Menu: ---
+
+@detailmenu
+@end detailmenu
+* Structure::
+* Project::
+* API::
+* Touch API::
+* OUYA API::
+* Copying::
+@end menu
+
+@node Introduction, Structure, Top, Top
+@unnumbered Introduction
+
+TODO
+
+@node Structure, Project, Introduction, Top
+@chapter The Structure of Talos
+
+TODO
+
+@menu
+* Front-End Skeletons::
+* The Common core code::
+@end menu
+
+@node Front-End Skeletons, The Common core code, Structure, Structure
+@section The Talos Front-End Skeletons
+
+Talos is generally broken into two front-end skeletons at present:
+
+@itemize
+@item
+Talos Touch
+@item
+OUYA Talos
+@end itemize
+
+Talos Touch is a version designed principally for touch-screen devices,
+particularly tablets or ``phablets,'' oversized mobile phones. Talos
+Touch may be possible to use from a smaller-screen device, like a phone,
+but it is not its intended usage (and therefore will likely be awkward
+to use).
+
+OUYA™@footnote{TODO: acknowledge trademark stuff; i.e. we are not
+partnered specially with OUYA, we just think they're cool and happen to
+target their device, and they own the trademarks and all that.} is, of
+course, the videogame console which runs a particular version of
+Android. The OUYA Talos port expects there to be no touchscreen, but
+instead to find one or more Bluetooth game controllers with the
+particular layout for the OUYA console.
+
+When creating your own game, you do not need to support both target
+environments. However, you are free to do so.
+
+@menu
+* Java Purity::
+* Future Androids::
+@end menu
+
+@node Java Purity, Future Androids, Front-End Skeletons, Front-End Skeletons
+@subsection Java Purity
+
+The front-end skeletons attempt to limit their dependencies to only the
+underlying Android libraries (and, for OUYA Talos, the OUYA platform
+libraries), and the Common code project. If you don't need to make
+changes to Common, you should find that you'll need no more specialized
+knowledge than any Android programmer in order to work with these modules.
+
+You should be able to subclass and override things as you might wish;
+these modules are being developed entirely to provide useful, concrete
+classes that you can override in the most minimal ways necessary to
+create your own front-end games.
+
+@node Future Androids,  , Java Purity, Front-End Skeletons
+@subsection Future Androids
+
+It has been suggested in future that Talos might be extended to support:
+
+@itemize
+@item
+Mobile phones in particular
+@item
+Netbooks or laptops running Android
+@item
+The nVidia Shield game console
+@end itemize
+
+At present, there are no solid plans to do so. As noted above, however,
+Talos Touch should be usable from phones, and you might be able to make
+a functional phone port of your own based upon it.
+
+The netbook port and Shield port would likely be based upon the OUYA
+Talos version.
+
+@node The Common core code,  , Front-End Skeletons, Structure
+@section The Common Core Code
+
+The Common folder contains the bulk of the shared code that any Android
+client might wish to use. Our goal is that you can instantiate the game
+object from Common with your front-end without having to edit or
+introspect it at all; i.e. we present a public interface which should be
+usable in a completely opaque manner.
+
+
+@node Project, API, Structure, Top
+@chapter Setting up Eclipse Projects
+
+TODO
+
+Short version: git submodules are your friend, check out Talos into a
+submodule of your project and then add the relevant parts (Common,
+Touch, and/or OUYA) to your workspace.
+
+@node API, Touch API, Project, Top
+@chapter Common API Reference
+
+This chapter includes every documented public class and member (method
+or field) in the Talos Common project. The contents of this section are
+automatically generated from the JavaDoc comments embedded within the
+program's source code.
+
+This chapter documents the public API of Common, only. This should be
+the only part that your front-end will need to interact with.
+
+@include common-api.texi
+
+@node Touch API, OUYA API, API, Top
+@chapter Talos Touch API Reference
+
+This chapter includes every documented public class and member (method
+or field) in the Talos Touch project. The contents of this section are
+automatically generated from the JavaDoc comments embedded within the
+program's source code.
+
+If you are writing a Touch client, you may wish to inherit from and
+override methods in any number of these classes with your own.
+
+@include touch-api.texi
+
+@node OUYA API, Copying, Touch API, Top
+@chapter OUYA Talos API Reference
+
+This chapter includes every documented public class and member (method
+or field) in the OUYA Talos project. The contents of this section are
+automatically generated from the JavaDoc comments embedded within the
+program's source code.
+
+If you are writing a OUYA client, you may wish to inherit from and
+override methods in any number of these classes with your own.
+
+@include ouya-api.text
+
+
+@node Copying,  , OUYA API, Top
+@appendix Copying Talos
+
+TODO explain license
+
+TODO explain this doc's license
+
+@section Copying the Talos program
+
+@section Copying this manual
+
+
+@bye
