@@ -19,3 +19,4 @@ temp-*
 # Android deployment packages
 *.apk
 
+*.orig
