@@ -7,25 +7,39 @@ include ../clients.mak
 
 all:	$(TALOSTOUCHDIST)/$(TALOSNAME)-$(TALOSVERSION)-Goog.apk \
 	$(TALOSTOUCHDIST)/$(TALOSNAME)-$(TALOSVERSION)-Amzn.apk \
-	$(TALOSOUYADIST)/$(TALOSNAME)-$(TALOSVERSION)-OUYA.apk
+	$(TALOSOUYADIST)/$(TALOSNAME)-$(TALOSVERSION)-OUYA.apk \
+	../dist/doc/Talos-manuals.tar.bz2
+
+########################################################################
 
 $(TALOSTOUCHDIST)/$(TALOSNAME)-$(TALOSVERSION)-Goog.apk:
-	$(BUILDDIR)/Talos/Touch.Google-Play/$(TALOSNAME)-$(TALOSVERSION).apk
+	$(BUILDDIR)/Touch.Google-Play/$(TALOSNAME)-$(TALOSVERSION).apk
 	$(CP) $< $@
 
 $(TALOSTOUCHDIST)/$(TALOSNAME)-$(TALOSVERSION)-Amzn.apk:
-	$(BUILDDIR)/Talos/Touch.Amazon-AppStore/$(TALOSNAME)-$(TALOSVERSION).apk
+	$(BUILDDIR)/Touch.Amazon-AppStore/$(TALOSNAME)-$(TALOSVERSION).apk
 	$(CP) $< $@
 
 $(TALOSTOUCHDIST)/$(TALOSNAME)-$(TALOSVERSION)-OUYA.apk:
-	$(BUILDDIR)/Talos/OUYA/$(TALOSNAME)-$(TALOSVERSION).apk
+	$(BUILDDIR)/OUYA/$(TALOSNAME)-$(TALOSVERSION).apk
 	$(CP) $< $@
 
-$(BUILDDIR)/Talos/Touch.Google-Play/$(TALOSNAME)-$(TALOSVERSION).apk:
-	
+$(BUILDDIR)/Talos/Touch.Google-Play/$(TALOSNAME)-$(TALOSVERSION).apk: \
+	$(SOURCES) $(SOLIBS) $(RESOURCES)	
 	echo "FAIL" >&2 ; exit 2
 
-$(BUILDDIR)/Talos/Touch.Google-Play/$(TALOSNAME)-$(TALOSVERSION).apk:
+$(BUILDDIR)/Talos/Touch.Google-Play/$(TALOSNAME)-$(TALOSVERSION).apk: \
+	$(SOURCES) $(SOLIBS) $(RESOURCES)	
+	echo "FAIL" >&2 ; exit 2
+
+$(BUILDDIR)/Talos/Touch.Google-Play/$(TALOSNAME)-$(TALOSVERSION).apk: \
+	$(SOURCES) $(SOLIBS) $(RESOURCES)	
+	echo "FAIL" >&2 ; exit 2
 
 
 
+########################################################################
+
+../dist/doc/Talos-manuals.tar.bz2: \
+	$(BUILDDIR)/Talos-manual/ecl-docs.texi \
+	$(BUILDDIR)/Talos-manual/
