@@ -1,4 +1,4 @@
-BUILDDIR=../build/Talos
+BUILDDIR=../../build/Talos
 
 include ../program.mak
 include ../versions.mak
