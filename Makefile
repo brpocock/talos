@@ -1,9 +1,9 @@
 BUILDDIR=../../build/Talos
 
-include ../program.mak
-include ../versions.mak
-include ../license.mak
-include ../clients.mak
+include ../../program.mak
+include ../../versions.mak
+include ../../license.mak
+include ../../clients.mak
 
 all:	$(TALOSTOUCHDIST)/$(TALOSNAME)-$(TALOSVERSION)-Goog.apk \
 	$(TALOSTOUCHDIST)/$(TALOSNAME)-$(TALOSVERSION)-Amzn.apk \
@@ -42,4 +42,11 @@ $(BUILDDIR)/Talos/Touch.Google-Play/$(TALOSNAME)-$(TALOSVERSION).apk: \
 
 ../dist/doc/Talos-manuals.tar.bz2: \
 	$(BUILDDIR)/Talos-manual/ecl-docs.texi \
-	$(BUILDDIR)/Talos-manual/
+	$(BUILDDIR)/Talos-manual/../../../../build/ecl-android/buildroot/host64/bin/yasm
+
+
+########################################################################
+
+ecl:	
+	$(MAKE) -C lib/ecl-android
+
